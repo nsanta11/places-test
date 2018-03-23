@@ -53,6 +53,13 @@
             //cache: false,
             url: queryURL,
             method: "GET",
+                url: "jsonp-wrapper.php",
+            success: function(data) {
+                $("#json-result").html(JSON.stringify(data));
+            },
+            error: function() {
+                alert("error");
+            }
             }).then(function(response) {
 
           // Creating a div to hold the movie
