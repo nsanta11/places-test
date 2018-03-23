@@ -62,6 +62,13 @@
         var city = $(this).attr("data-name");
         var queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=apartments+for+rent+in+" + city + "&key=AIzaSyCi97TbnUuqiYsXZZarF9fFEP6omQF2E7M&libraries=places";
 
+        //Creating an AJAX call for the specific movie button being clicked
+        $.ajaxPrefilter(function(options) {
+                if (options.crossDomain && $.support.cors) {
+                 options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+            }
+        });
+        
         // Creating an AJAX call for the specific movie button being clicked
         $.ajax({
             //dataType: 'jsonp',
@@ -81,16 +88,16 @@
           console.log(name);
 
           // Creating an element to have the rating displayed
-          var pOne = $("<p>").text("Rating: " + rating);
+          //var pOne = $("<p>").text("Rating: " + rating);
 
           // Displaying the rating
           housingDiv.append(pOne);
 
           // Storing the release year
-          var released = response.results.rating;
+          //var released = response.results.rating;
 
           // Creating an element to hold the release year
-          var pTwo = $("<p>").text("Released: " + released);
+          //var pTwo = $("<p>").text("Released: " + released);
 
           // Displaying the release year
           housingDiv.append(pTwo);
