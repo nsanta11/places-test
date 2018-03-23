@@ -35,9 +35,24 @@
     </form>
     <div id="json-result"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 
     <script type="text/javascript">
+      
+
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBfvyh9wBqyE_GrKn5tpom1qSBb_QZ4P9E",
+    authDomain: "places-test-56aec.firebaseapp.com",
+    databaseURL: "https://places-test-56aec.firebaseio.com",
+    projectId: "places-test-56aec",
+    storageBucket: "places-test-56aec.appspot.com",
+    messagingSenderId: "153880276333"
+  };
+
+  firebase.initializeApp(config);
+      
       // Initial array of movies
       var cities = ["Phoenix", "Austin", "Los Angeles", "San Diego"];
 
@@ -49,7 +64,7 @@
 
         // Creating an AJAX call for the specific movie button being clicked
         $.ajax({
-            dataType: 'jsonp',
+            //dataType: 'jsonp',
             //cache: false,
             url: queryURL,
             method: "GET",
