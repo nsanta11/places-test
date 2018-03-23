@@ -33,7 +33,7 @@
       <!-- Button triggers new movie to be added -->
       <input id="add-city" type="submit" value="Add a Movie Bro">
     </form>
-
+    <div id="json-result"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   
 
@@ -53,14 +53,11 @@
             //cache: false,
             url: queryURL,
             method: "GET",
-                url: "jsonp-wrapper.php",
-            success: function(data) {
-                $("#json-result").html(JSON.stringify(data));
-            },
-            error: function() {
-                alert("error");
-            }
+            url: "jsonp-wrapper.php",
+       
             }).then(function(response) {
+          
+          $("#json-result").html(JSON.stringify(data));
 
           // Creating a div to hold the movie
           var housingDiv = $("<div class='housing'>");
